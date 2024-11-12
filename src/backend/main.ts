@@ -5,7 +5,7 @@ import { Name, Interest, Component } from '@ndn/packet'
 import * as nfdmgmt from '@ndn/nfdmgmt'
 import { getYjsDoc } from '@syncedstore/core'
 import * as Y from 'yjs'
-import { CertStorage } from '@ucla-irl/ndnts-aux/security'
+import { CertStorage, InvitationPackage } from '@ucla-irl/ndnts-aux/security'
 import { RootDocStore, initRootDoc, project, profiles, connections } from './models'
 import { FsStorage, InMemoryStorage, type Storage } from '@ucla-irl/ndnts-aux/storage'
 import { Certificate } from '@ndn/keychain'
@@ -28,6 +28,7 @@ export let bootstrapping = false // To prevent double click
 // export let bootstrapped = false   // !!workspace
 export let persistStore: Storage | undefined
 export let certStorage: CertStorage | undefined
+export let invitationPackage: InvitationPackage | undefined
 export let workspace: Workspace | undefined
 export let appPrefix: Name | undefined
 export let nodeId: Name | undefined
@@ -168,6 +169,16 @@ export async function bootstrapWorkspace(opts: {
   // certStore = new InMemoryStorage()
   certStorage = new CertStorage(opts.trustAnchor, opts.ownCertificate, persistStore, forwarder, opts.prvKey)
   await certStorage.readyEvent
+  // Initialize certStorage for the existing invitationPackage instance
+  if (invitationPackage) {
+    invitationPackage.initializeCertStorage(certStorage)
+    await invitationPackage.readyEvent
+  } else {
+    console.error('InvitationPackage is not initialized. Please initialize it first.')
+    toast.error('Invitation package is not initialized. Please initialize it first.')
+    bootstrapping = false
+    return
+  }
 
   // Root doc using CRDT and Sync
   rootDoc = initRootDoc(project.WorkspaceDocId)
@@ -292,6 +303,7 @@ export async function stopWorkspace() {
 
   rootDoc = undefined
   certStorage = undefined
+  invitationPackage = undefined
 
   persistStore?.close()
   persistStore = undefined
@@ -431,3 +443,15 @@ export const isProfileExisting = profiles.profiles.isExisting.bind(profiles.prof
 // ============= Connections (init) =============
 
 connections.initDefault()
+
+// ============= Invitation =============
+
+export function createInvitationPackage() {
+  if (invitationPackage) {
+    console.warn('InvitationPackage is already initialized.')
+    return
+  }
+
+  invitationPackage = new InvitationPackage()
+  console.log('New InvitationPackage instance created.')
+}

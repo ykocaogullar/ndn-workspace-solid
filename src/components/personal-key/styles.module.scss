@@ -1,0 +1,109 @@
+/* Styling for the KeyEntry page */
+.keyEntryPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.inputField {
+  width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  color: #333;
+  background-color: #f7f7f7;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.submitButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.submitButton:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.submitButton:not(:disabled):hover {
+  background-color: #0056b3;
+}
+
+/* Container for displaying certificate details */
+.certificateDisplayContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%; /* Ensures it matches parent width */
+}
+
+/* Display area for certificate */
+.certificateDisplay {
+  background-color: #f4f4f4; /* Light grey background */
+  color: #333; /* Dark grey text for readability */
+  padding: 16px;
+  border-radius: 8px;
+  font-family: monospace; /* Monospaced font for better alignment */
+  white-space: pre-wrap; /* Preserve line breaks */
+  overflow-y: auto; /* Scrollable for overflow content */
+  width: 100%; /* Full width */
+  max-height: 200px; /* Limit height */
+  margin-bottom: 8px;
+}
+
+/* Copy button styling */
+.copyButton {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start; /* Align copy button to the start of container */
+}
+
+.copyButton:hover {
+  background-color: #0056b3;
+}
+
+.copySuccess {
+  color: #28a745;
+  font-size: 0.9em;
+  margin-top: 8px;
+}

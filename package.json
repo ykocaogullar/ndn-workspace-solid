@@ -64,7 +64,7 @@
     "@tiptap/extension-text-style": "^2.7.4",
     "@tiptap/pm": "^2.7.4",
     "@tiptap/starter-kit": "^2.7.4",
-    "@ucla-irl/ndnts-aux": "^3.0.5",
+    "@ucla-irl/ndnts-aux": "file:/Users/yektakocaogullar/Desktop/capstone/ndnts-aux/dist",
     "autoprefixer": "^10.4.20",
     "codemirror": "^6.0.1",
     "diff": "^5.2.0",

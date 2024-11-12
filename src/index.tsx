@@ -22,6 +22,9 @@ import { project } from './backend/models'
 import { Toaster } from 'solid-toast'
 import { Chat } from './components/chat/chat'
 import ConfigPage from './components/config'
+import InvitationPage from './components/invitation-page/invitation-page'
+import KeyEntry from './components/personal-key/personal'
+import WorkspaceCreationPage from './components/creation-page/creation'
 
 const rootElement = document.getElementById('root')!
 
@@ -60,6 +63,9 @@ function RootComponent(props: RouteSectionProps) {
           title: 'Connection',
         },
         { icon: <SettingsIcon />, href: '/config-page', title: 'Settings' },
+        { icon: <SettingsIcon />, href: '/creation-page', title: 'Create Workspace' },
+        { icon: <SettingsIcon />, href: '/invitation-page', title: 'Invitation' },
+        { icon: <SettingsIcon />, href: '/personal-key', title: 'Personal Key' },
       ]}
     >
       {props.children}
@@ -81,6 +87,9 @@ render(
         <Route path="/convert-testbed" component={ConvertTestbed} />
         <Route path="/oauth-test" component={OauthTest} />
         <Route path="/config-page" component={ConfigPage} />
+        <Route path="/invitation-page" component={InvitationPage} />
+        <Route path="/personal-key" component={KeyEntry} />
+        <Route path="/creation-page" component={WorkspaceCreationPage} />
       </Router>
 
       <Toaster />

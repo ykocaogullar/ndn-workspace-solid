@@ -1,0 +1,92 @@
+// Styling for the Invitation Page
+.invitationPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+}
+
+.pageTitle {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333; /* Darken color for better contrast */
+}
+
+.inputField, .inputTextArea, .serializedTextArea {
+  width: 300px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  color: #333; /* Ensure the text color is black for readability */
+  background-color: #f7f7f7; /* Light gray background to distinguish */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.createButton, .copyButton, .decodeButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.createButton:hover, .copyButton:hover, .decodeButton:hover {
+  background-color: #0056b3;
+}
+
+.serializedOutput h2, .decodedOutput h3 {
+  color: #333; /* Dark text for contrast */
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.copySuccess {
+  color: #28a745; /* Green color for success message */
+  font-size: 0.9em;
+  margin-top: 8px;
+}
+
+.decodedOutput {
+  width: 100%;
+  max-width: 500px;
+  background-color: #f7f7f7; /* Light gray background */
+  color: #333333; /* Dark text for readability */
+  padding: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  margin-top: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Enable horizontal scrolling for long lines */
+
+  pre {
+    color: #333333; /* Ensure text inside <pre> is dark */
+    font-size: 0.9em;
+    line-height: 1.4;
+    white-space: pre-wrap; /* Wrap long lines within <pre> */
+    word-break: break-word;
+  }
+}
